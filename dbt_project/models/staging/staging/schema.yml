@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_accounts
+    columns:
+      - name: account_name
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_data_dictionary
+    columns:
+      - name: table_name
+        tests:
+          - not_null
+      - name: field_name
+        tests:
+          - not_null
+
+  - name: stg_products
+    columns:
+      - name: product_name
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_sales_pipeline
+    columns:
+      - name: opportunity_id
+        tests:
+          - unique
+          - not_null
+      - name: sales_agent
+        tests:
+          - not_null
+      - name: product_name
+        tests:
+          - not_null
+
+  - name: stg_sales_teams
+    columns:
+      - name: sales_agent
+        tests:
+          - unique
+          - not_null
