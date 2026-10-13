@@ -41,10 +41,8 @@ analytical tables in `main_dwh`. The DuckDB profile is in `include/profiles.yml`
 
 The fact table is at the grain of one sales opportunity. Open opportunities
 may not have an account, close date, or close value; those fields are therefore
-allowed to be null where applicable. See [docs/DATA_MODEL.md](docs/DATA_MODEL.md)
-for conceptual, logical, and physical diagrams and field details.
-For full project setup, architecture, task behavior, tests, and troubleshooting,
-see the [Arabic project documentation](docs/PROJECT_DOCUMENTATION_AR.md).
+allowed to be null where applicable. The dbt model SQL and YAML files in
+`dbt_project/` define the analytical schema and data quality checks.
 
 ## Dependencies and configuration
 
@@ -62,9 +60,9 @@ The pipeline was validated in the Astro runtime:
 
 ## Submission contents
 
-The submission ZIP contains the Astro project, source CSVs, dbt models,
-configuration, and documentation. It omits local secrets, generated DuckDB
-files, logs, caches, and virtual environments; these are recreated locally.
+The submission ZIP contains the Astro project, source CSVs, dbt models, and
+configuration. It omits local secrets, generated DuckDB files, logs, caches,
+and virtual environments; these are recreated locally.
 
 The sibling `../dbt_project/` directory is a separate standalone dbt project;
 the Airflow DAG does not use it. The sibling script
